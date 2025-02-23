@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## tauri로 만드는 뽀모도로 타이머
 
-## Getting Started
+Pomodoro Timer (Tauri + Next.js 15 + TypeScript + Tailwind CSS)
 
-First, run the development server:
+📌 프로젝트 개요
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tauri와 Next.js 15를 활용하여 크로스 플랫폼에서 동작하는 뽀모도로 타이머를 개발합니다.
+이 프로젝트는 집중 시간을 효과적으로 관리할 수 있도록 심플하면서도 강력한 기능을 제공하는 것을 목표로 합니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+🚀 기술 스택
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+프레임워크: Tauri, Next.js 15
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+프로그래밍 언어: TypeScript
 
-## Learn More
+스타일링: Tailwind CSS
 
-To learn more about Next.js, take a look at the following resources:
+패키지 매니저: Yarn
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+테스트:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+E2E Test: Cypress
 
-## Deploy on Vercel
+컴포넌트 문서화: Storybook
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+🎯 주요 기능
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+뽀모도로 타이머: 사용자가 원하는 작업 시간을 설정하고 집중할 수 있도록 지원
+
+작업 기록: 완료된 세션을 저장하여 사용자 성과 추적
+
+알림 기능: 타이머 종료 시 데스크톱 알림 또는 소리 지원
+
+설정 커스터마이징: 사용자별 시간 설정, 테마 변경 지원
+
+🧪 테스트 계획
+
+Unit Test (Jest)
+
+주요 컴포넌트 렌더링 테스트
+
+커스텀 훅 테스트
+
+유틸리티 함수 테스트
+
+E2E Test (추후 결정)
+
+기본적인 타이머 동작 검증
+
+사용자 설정 저장 및 반영 테스트
+
+알림 기능 동작 확인

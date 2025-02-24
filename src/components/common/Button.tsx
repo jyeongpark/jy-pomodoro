@@ -19,11 +19,11 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseStyles =
-    "flex justify-center items-center text-mainText rounded hover:opacity-50 disabled:cursor-not-allowed disabled:opacity-50";
+    "flex justify-center items-center text-foreground rounded hover:opacity-50 disabled:cursor-not-allowed disabled:opacity-50";
 
   const variantStyles: Record<Varient, string> = {
-    fill: "bg-main",
-    outline: "border border-main",
+    fill: "bg-primary",
+    outline: "border border-primary",
   };
 
   const sizeStyles: Record<Size, string> = {

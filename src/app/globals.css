@@ -9,33 +9,23 @@ body {
 @layer base {
   /** 기본 */
   :root[data-theme="light"] {
-    --background: #ffffff;
-    --foreground: #171717;
-    --main: #c05755;
-    --text: #2b2b2b;
+    --background: #f8f5f4;
+    --primary: #c05755;
+    --secondary: #f4a798;
+    --foreground: #2d1b1b;
   }
 
   /** 다크 테마 */
   :root[data-theme="dark"] {
-    --background: #c05755;
-    --foreground: #ededed;
-    --main: #531d1b;
-    --text: #ffffff;
+    --background: #1e1414;
+    --primary: #c05755;
+    --secondary: #8b3a3a;
+    --foreground: #f8e8e8;
   }
+}
 
-  /** 크리스마스 테마 */
-  :root[data-theme="christmas"] {
-    --background: #ffffff;
-    --foreground: #171717;
-    --main: #0f5132;
-    --text: #f8f9fa;
-  }
-
-  /** 할로윈 테마 */
-  :root[data-theme="halloween"] {
-    --background: #ffffff;
-    --foreground: #171717;
-    --main: #ff7518;
-    --text: #1a1a1a;
-  }
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
 }

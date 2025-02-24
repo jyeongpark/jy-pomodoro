@@ -15,7 +15,7 @@ interface ThemeContextProps {
   availableThemes: Theme[];
 }
 
-const themes: Theme[] = ["light", "dark", "christmas", "halloween"]; // 추가 가능!
+const themes: Theme[] = ["light", "dark"]; // 추가 가능!
 
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 

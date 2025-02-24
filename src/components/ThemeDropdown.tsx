@@ -11,7 +11,7 @@ export default function ThemeDropdown() {
       <select
         value={theme}
         onChange={(e) => setTheme(e.target.value as Theme)}
-        className="px-1 py-2 border rounded"
+        className="rounded border bg-background px-1 py-2 text-foreground"
       >
         {availableThemes.map((t) => (
           <option key={t} value={t}>

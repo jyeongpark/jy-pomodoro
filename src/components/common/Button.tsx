@@ -5,14 +5,14 @@ type Size = "small" | "medium" | "large";
 type Varient = "fill" | "outline";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+   /** 종류 */
   variant: Varient;
+   /** 사이즈 */
   size: Size;
 }
 
 const Button: React.FC<ButtonProps> = ({
-  /** 종류 */
   variant,
-  /** 사이즈 */
   size,
   className,
   children,

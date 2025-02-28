@@ -23,6 +23,7 @@ const meta = {
   args: {
     totalTime: 3400,
     remainingTime: 59,
+    mode: "work",
     size: 120,
     outerStrokeWidth: 2,
     innerStrokeWidth: 30,

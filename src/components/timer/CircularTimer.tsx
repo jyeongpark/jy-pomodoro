@@ -3,12 +3,15 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import TimeDisplay from "./TimeDisplay";
+import { Mode } from "@/types/timer";
 
 export interface CircularTimerProps {
   /** 전체 시간 (초 단위) */
   totalTime: number;
   /** 남은 시간 (초 단위) */
   remainingTime: number;
+  /** 모드 (작업, 휴식) */
+  mode: Mode;
   /** 원 크기 */
   size?: number;
   /** 외부 선 두께 */
@@ -20,6 +23,7 @@ export interface CircularTimerProps {
 const CircularTimer = ({
   totalTime,
   remainingTime,
+  mode,
   size = 120,
   outerStrokeWidth = 2,
   innerStrokeWidth = 30,
@@ -121,7 +125,7 @@ const CircularTimer = ({
         cx={size / 2}
         cy={size / 2}
         r={innerRadius}
-        stroke="var(--secondary)"
+        stroke={mode === "work" ? "var(--secondary)" : "var(--break-secondary)"}
         strokeWidth={innerStrokeWidth}
         fill="transparent"
         strokeDasharray={circumference}
@@ -144,7 +148,7 @@ const CircularTimer = ({
         cx={size / 2}
         cy={size / 2}
         r={innerRadius}
-        stroke="var(--primary)"
+        stroke={mode === "work" ? "var(--primary)" : "var(--break-primary)"}
         strokeWidth={innerStrokeWidth}
         fill="transparent"
         strokeDasharray={circumference}

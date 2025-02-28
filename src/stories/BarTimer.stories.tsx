@@ -22,6 +22,7 @@ const meta = {
   args: {
     totalTime: 300,
     remainingTime: 202,
+    mode: "work",
     size: 120,
     strokeWidth: 20,
   },

@@ -13,6 +13,8 @@ body {
     --primary: #c05755;
     --secondary: #f4a798;
     --foreground: #2d1b1b;
+    --break-primary: #2d6a4f;
+    --break-secondary: #95d5b2;
   }
 
   /** 다크 테마 */
@@ -21,6 +23,8 @@ body {
     --primary: #c05755;
     --secondary: #8b3a3a;
     --foreground: #f8e8e8;
+    --break-primary: #1b4332;
+    --break-secondary: #40916c;
   }
 }
 

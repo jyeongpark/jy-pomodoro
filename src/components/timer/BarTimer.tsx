@@ -3,10 +3,12 @@
 import { motion } from "framer-motion";
 import TimeDisplay from "./TimeDisplay";
 import { useEffect, useState } from "react";
+import { Mode } from "fs";
 
 export interface BarTimerProps {
   totalTime: number;
-  remainingTime: number;
+  remainingTime: number /** 모드 (작업, 휴식) */;
+  mode: Mode;
   /** 정사각형 크기  (px)*/
   size?: number;
   /** 선 두께 (px) */
@@ -16,6 +18,7 @@ export interface BarTimerProps {
 const BarTimer = ({
   totalTime,
   remainingTime,
+  mode,
   size = 120,
   strokeWidth = 20,
 }: BarTimerProps) => {
@@ -42,7 +45,7 @@ const BarTimer = ({
         y1={size}
         x2={size}
         y2={size}
-        stroke={"var(--secondary)"}
+        stroke={mode === "work" ? "var(--secondary)" : "var(--break-secondary)"}
         strokeWidth={strokeWidth}
         initial={{ opacity: 1 }}
         animate={{
@@ -61,7 +64,7 @@ const BarTimer = ({
         y1={size}
         x2={size}
         y2={size}
-        stroke={"var(--primary)"}
+        stroke={mode === "work" ? "var(--primary)" : "var(--break-primary)"}
         strokeWidth={strokeWidth}
         initial={{ opacity: 1 }}
         animate={{

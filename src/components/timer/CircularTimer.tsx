@@ -61,20 +61,22 @@ const CircularTimer = ({
       const rad = (angle * Math.PI) / 180;
 
       // 바깥 원 위치
-      const outerX = size / 2 + Math.cos(rad) * (size / 2);
-      const outerY = size / 2 + Math.sin(rad) * (size / 2);
+      const outerX = (size / 2 + Math.cos(rad) * (size / 2)).toFixed(5);
+      const outerY = (size / 2 + Math.sin(rad) * (size / 2)).toFixed(5);
 
       // 안쪽 원 위치 (긴 선 or 짧은 점)
-      const innerX =
+      const innerX = (
         size / 2 +
         Math.cos(rad) *
           (outerRadius -
-            (i % 5 === 0 ? outerStrokeWidth + 5 : outerStrokeWidth));
-      const innerY =
+            (i % 5 === 0 ? outerStrokeWidth + 5 : outerStrokeWidth))
+      ).toFixed(5);
+      const innerY = (
         size / 2 +
         Math.sin(rad) *
           (outerRadius -
-            (i % 5 === 0 ? outerStrokeWidth + 5 : outerStrokeWidth));
+            (i % 5 === 0 ? outerStrokeWidth + 5 : outerStrokeWidth))
+      ).toFixed(5);
 
       marks.push(
         <motion.line

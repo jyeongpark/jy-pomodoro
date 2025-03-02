@@ -36,6 +36,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.20",
+    "cypress": "^14.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.1.7",
     "eslint-plugin-storybook": "^0.11.3",

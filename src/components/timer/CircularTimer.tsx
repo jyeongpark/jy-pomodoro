@@ -12,6 +12,8 @@ export interface CircularTimerProps {
   remainingTime: number;
   /** 모드 (작업, 휴식) */
   mode: Mode;
+  /** 작동중 */
+  isRunning: boolean;
   /** 원 크기 */
   size?: number;
   /** 외부 선 두께 */
@@ -24,6 +26,7 @@ const CircularTimer = ({
   totalTime,
   remainingTime,
   mode,
+  isRunning,
   size = 120,
   outerStrokeWidth = 2,
   innerStrokeWidth = 30,
@@ -159,12 +162,16 @@ const CircularTimer = ({
           strokeDashoffset: remainingOffset,
           opacity: isBlinking ? [1, 0, 1] : [1],
         }}
-        transition={{
-          duration: 1,
-          ease: "easeInOut",
-          repeat: Infinity,
-          repeatType: "loop",
-        }}
+        transition={
+          isRunning
+            ? {
+                duration: 1,
+                ease: "easeInOut",
+                repeat: Infinity,
+                repeatType: "loop",
+              }
+            : { duration: 0 }
+        }
       />
 
       {/* 5분(긴 선), 1분(짧은 점) 표시 */}

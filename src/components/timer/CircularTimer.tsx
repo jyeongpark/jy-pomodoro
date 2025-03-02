@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import TimeDisplay from "./TimeDisplay";
-import { Mode } from "@/types/timer";
+import { TimerMode } from "@/types/timer";
 
 export interface CircularTimerProps {
   /** 전체 시간 (초 단위) */
@@ -11,7 +11,7 @@ export interface CircularTimerProps {
   /** 남은 시간 (초 단위) */
   remainingTime: number;
   /** 모드 (작업, 휴식) */
-  mode: Mode;
+  mode: TimerMode;
   /** 작동중 */
   isRunning: boolean;
   /** 원 크기 */

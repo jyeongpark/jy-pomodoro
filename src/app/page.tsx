@@ -26,7 +26,7 @@ export default function Home() {
           remainingTime={remainingTime}
           totalTime={totalTime}
           isRunning={isRunning}
-          mode={mode.toLowerCase().includes("break") ? "break" : "work"}
+          mode={mode}
         />
       </h1>
 

@@ -1,1 +1,1 @@
-export type Mode = "work" | "break";
+export type TimerMode = "work" | "shortBreak" | "longBreak";

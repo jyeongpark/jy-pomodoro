@@ -1,17 +1,17 @@
 "use client";
 
-import { useTheme } from "@/context/ThemeContext";
+import { useThemeContext } from "@/context/ThemeContext";
 import { Theme } from "@/types/theme";
 
 export default function ThemeDropdown() {
-  const { theme, setTheme, availableThemes } = useTheme();
+  const { theme, onChangeTheme, availableThemes } = useThemeContext();
 
   return (
     <div className="relative inline-block">
       <select
         value={theme}
-        onChange={(e) => setTheme(e.target.value as Theme)}
-        className="rounded border bg-background px-1 py-2 text-foreground"
+        onChange={(e) => onChangeTheme(e.target.value as Theme)}
+        className="text-foreground rounded border bg-background px-1 py-2"
       >
         {availableThemes.map((t) => (
           <option key={t} value={t}>

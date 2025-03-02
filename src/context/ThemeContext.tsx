@@ -1,17 +1,12 @@
 "use client";
 
+import { useTheme } from "@/hooks/useTheme";
 import { Theme } from "@/types/theme";
-import {
-  createContext,
-  useContext,
-  ReactNode,
-  useState,
-  useEffect,
-} from "react";
+import { createContext, ReactNode, useContext } from "react";
 
 interface ThemeContextProps {
   theme: Theme;
-  setTheme: (theme: Theme) => void;
+  onChangeTheme: (theme: Theme) => void;
   availableThemes: Theme[];
 }
 
@@ -20,31 +15,23 @@ const themes: Theme[] = ["light", "dark"]; // 추가 가능!
 const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 
 const ThemeProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== "undefined") {
-      return (localStorage.getItem("theme") || "light") as Theme;
-    }
-    return "light";
-  });
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  const { theme, onChangeTheme } = useTheme();
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, availableThemes: themes }}>
+    <ThemeContext.Provider
+      value={{ theme, onChangeTheme, availableThemes: themes }}
+    >
       {children}
     </ThemeContext.Provider>
   );
 };
 
-const useTheme = () => {
+function useThemeContext() {
   const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error("useTheme must be used within a ThemeProvider");
+    throw new Error("useThemeContext must be used within a ThemeProvider");
   }
   return context;
-};
+}
 
-export { ThemeProvider, useTheme };
+export { ThemeProvider, useThemeContext };

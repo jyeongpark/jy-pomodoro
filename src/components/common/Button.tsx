@@ -1,13 +1,14 @@
 "use client";
+
 import { ButtonHTMLAttributes } from "react";
 
 type Size = "small" | "medium" | "large";
 type Varient = "fill" | "outline";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-   /** 종류 */
+  /** 종류 */
   variant: Varient;
-   /** 사이즈 */
+  /** 사이즈 */
   size: Size;
 }
 

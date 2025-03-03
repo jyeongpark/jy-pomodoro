@@ -31,7 +31,7 @@ const CircularTimer = ({
   outerStrokeWidth = 2,
   innerStrokeWidth = 30,
 }: CircularTimerProps) => {
-  const [isBlinking, setIsBlinking] = useState(false); // 60초 남았을 때 깜빡임
+  const [isBlinking, setIsBlinking] = useState(false); // 진행중 && 60초 이하 깜빡임
 
   const outerRadius = (size - outerStrokeWidth) / 2;
   const innerRadius = (size - innerStrokeWidth) / 2;
@@ -44,14 +44,14 @@ const CircularTimer = ({
   const remainingOffset =
     circumference * (1 - Math.min(remainingTime / 3600, 1));
 
-  // 타이머가 끝나면 깜빡이기 시작
+  // 타이머가 끝나가면 깜빡이기 시작
   useEffect(() => {
-    if (remainingTime <= 60) {
+    if (remainingTime <= 60 && isRunning) {
       setIsBlinking(true); // 타이머가 60초가 남으면
     } else {
       setIsBlinking(false);
     }
-  }, [remainingTime]);
+  }, [remainingTime, isRunning]);
 
   // 시계 눈금 (5분 = 긴 선, 1분 = 짧은 점)
   const renderClockMarks = () => {

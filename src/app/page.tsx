@@ -30,7 +30,7 @@ export default function Home() {
         />
       </h1>
 
-      <h2 className="text-lg font-medium">
+      <h2 data-cy="mode-display" className="text-lg font-medium">
         {mode === "work"
           ? "Work Time 💪"
           : mode === "shortBreak"
@@ -40,6 +40,7 @@ export default function Home() {
 
       <div className="flex gap-2">
         <Button
+          data-cy="start-button"
           variant={"fill"}
           size={"medium"}
           onClick={startTimer}
@@ -48,6 +49,7 @@ export default function Home() {
           Start
         </Button>
         <Button
+          data-cy="pause-button"
           variant={"fill"}
           size={"medium"}
           onClick={pauseTimer}
@@ -55,10 +57,20 @@ export default function Home() {
         >
           Pause
         </Button>
-        <Button variant={"fill"} size={"medium"} onClick={resetTimer}>
+        <Button
+          data-cy="reset-button"
+          variant={"fill"}
+          size={"medium"}
+          onClick={resetTimer}
+        >
           Reset
         </Button>
-        <Button variant={"fill"} size={"medium"} onClick={handleNextSession}>
+        <Button
+          data-cy="skip-button"
+          variant={"fill"}
+          size={"medium"}
+          onClick={handleNextSession}
+        >
           Skip
         </Button>
       </div>

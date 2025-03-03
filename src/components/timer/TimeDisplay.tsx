@@ -1,4 +1,5 @@
 "use client";
+
 import { motion } from "framer-motion";
 
 import React from "react";
@@ -14,6 +15,7 @@ export interface TimeDisplayProps {
 const TimeDisplay = ({ second, isBlinking }: TimeDisplayProps) => {
   return (
     <motion.text
+      data-cy="time-display"
       x="50%"
       y="50%"
       textAnchor="middle"

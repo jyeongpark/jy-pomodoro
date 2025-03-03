@@ -1,5 +1,4 @@
-// MM:SS 형식으로 변환
-
+/**  MM:SS 형식으로 변환 */
 export const formatSecond = (seconds: number) => {
   const minutes = Math.floor(seconds / 60);
   const secs = seconds % 60;

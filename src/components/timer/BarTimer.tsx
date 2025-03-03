@@ -3,12 +3,17 @@
 import { motion } from "framer-motion";
 import TimeDisplay from "./TimeDisplay";
 import { useEffect, useState } from "react";
-import { Mode } from "fs";
+import { TimerMode } from "@/types/timer";
 
 export interface BarTimerProps {
+  /** 전체 시간 (초 단위) */
   totalTime: number;
-  remainingTime: number /** 모드 (작업, 휴식) */;
-  mode: Mode;
+  /** 모드 (작업, 휴식) */
+  remainingTime: number;
+  /** 모드 (작업, 휴식) */
+  mode: TimerMode;
+  /** 작동중 */
+  isRunning: boolean;
   /** 정사각형 크기  (px)*/
   size?: number;
   /** 선 두께 (px) */
@@ -19,21 +24,22 @@ const BarTimer = ({
   totalTime,
   remainingTime,
   mode,
+  isRunning,
   size = 120,
   strokeWidth = 20,
 }: BarTimerProps) => {
-  const [isBlinking, setIsBlinking] = useState(false); // 60초 남았을 때 깜빡임
+  const [isBlinking, setIsBlinking] = useState(false); // 진행중 && 60초 이하 깜빡임
 
   const progress = (remainingTime / totalTime) * size;
 
-  // 타이머가 끝나면 깜빡이기 시작
+  // 타이머가 끝나가면 깜빡이기 시작
   useEffect(() => {
-    if (remainingTime <= 60) {
+    if (remainingTime <= 60 && isRunning) {
       setIsBlinking(true); // 타이머가 60초가 남으면
     } else {
       setIsBlinking(false);
     }
-  }, [remainingTime]);
+  }, [remainingTime, isRunning]);
 
   return (
     <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>

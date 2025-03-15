@@ -141,6 +141,11 @@ export function useTimer() {
 
     setMode(nextMode); // 모드 변경
     setRemainingTime(duration[nextMode]); // 현재 모드의 초기 시간으로 초기화
+
+    if (mode === "longBreak") {
+      // 4번의 세션이 끝나면 자동 pause
+      pauseTimer();
+    }
   };
 
   // 사용자 설정 시간 변경
